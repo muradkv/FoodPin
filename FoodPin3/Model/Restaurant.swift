@@ -7,32 +7,32 @@
 
 import Foundation
 
-struct Restaurant {    
-    let names: String
+struct Restaurant: Hashable {    
+    let name: String
 }
 
 struct RestaurantList {
     static let allValues = [
-        Restaurant(names: "Cafe Deadend"),
-        Restaurant(names: "Homei"),
-        Restaurant(names: "Teakha"),
-        Restaurant(names: "Cafe Loisl"),
-        Restaurant(names: "Petite Oyster"),
-        Restaurant(names: "For Kee Restaurant"),
-        Restaurant(names: "Po's Atelier"),
-        Restaurant(names: "Bourke Street Bakery"),
-        Restaurant(names: "Haigh's Chocolate"),
-        Restaurant(names: "Palomino Espresso"),
-        Restaurant(names: "Upstate"),
-        Restaurant(names: "Traif"),
-        Restaurant(names: "Graham Avenue Meats And Deli"),
-        Restaurant(names: "Waffle & Wolf"),
-        Restaurant(names: "Five Leaves"),
-        Restaurant(names: "Cafe Lore"),
-        Restaurant(names: "Confessional"),
-        Restaurant(names: "Barrafina"),
-        Restaurant(names: "Donostia"),
-        Restaurant(names: "Royal Oak"),
-        Restaurant(names: "CASK Pub and Kitchen")
+        Restaurant(name: "Cafe Deadend"),
+        Restaurant(name: "Homei"),
+        Restaurant(name: "Teakha"),
+        Restaurant(name: "Cafe Loisl"),
+        Restaurant(name: "Petite Oyster"),
+        Restaurant(name: "For Kee Restaurant"),
+        Restaurant(name: "Po's Atelier"),
+        Restaurant(name: "Bourke Street Bakery"),
+        Restaurant(name: "Haigh's Chocolate"),
+        Restaurant(name: "Palomino Espresso"),
+        Restaurant(name: "Upstate"),
+        Restaurant(name: "Traif"),
+        Restaurant(name: "Graham Avenue Meats And Deli"),
+        Restaurant(name: "Waffle & Wolf"),
+        Restaurant(name: "Five Leaves"),
+        Restaurant(name: "Cafe Lore"),
+        Restaurant(name: "Confessional"),
+        Restaurant(name: "Barrafina"),
+        Restaurant(name: "Donostia"),
+        Restaurant(name: "Royal Oak"),
+        Restaurant(name: "CASK Pub and Kitchen")
     ]
 }

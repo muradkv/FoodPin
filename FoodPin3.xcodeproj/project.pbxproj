@@ -12,7 +12,7 @@
 		FA374F5428A970F900232219 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA374F5228A970F900232219 /* Main.storyboard */; };
 		FA374F5628A970FA00232219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA374F5528A970FA00232219 /* Assets.xcassets */; };
 		FA374F5928A970FA00232219 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA374F5728A970FA00232219 /* LaunchScreen.storyboard */; };
-		FA374F6528A9722A00232219 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6428A9722A00232219 /* TableViewController.swift */; };
+		FA374F6528A9722A00232219 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */; };
 		FA374F6728A9B97600232219 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6628A9B97600232219 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		FA374F5528A970FA00232219 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA374F5828A970FA00232219 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA374F5A28A970FA00232219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA374F6428A9722A00232219 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		FA374F6628A9B97600232219 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 		FA374F6328A971F300232219 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FA374F6428A9722A00232219 /* TableViewController.swift */,
+				FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			files = (
 				FA374F6728A9B97600232219 /* Restaurant.swift in Sources */,
 				FA374F4D28A970F900232219 /* AppDelegate.swift in Sources */,
-				FA374F6528A9722A00232219 /* TableViewController.swift in Sources */,
+				FA374F6528A9722A00232219 /* RestaurantTableViewController.swift in Sources */,
 				FA374F4F28A970F900232219 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
