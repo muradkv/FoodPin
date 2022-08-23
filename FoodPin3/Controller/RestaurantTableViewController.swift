@@ -42,6 +42,8 @@ class RestaurantTableViewController: UITableViewController {
                 
                 cell.nameLabel.text = restaurant.name
                 cell.thumbnailImageView.image = UIImage(named: restaurant.name)
+                cell.locationLabel.text = restaurant.location
+                cell.typeLabel.text = restaurant.type
                 return cell
                 
             }
