@@ -36,9 +36,12 @@ class RestaurantTableViewController: UITableViewController {
             tableView: tableView,
             cellProvider: { tableView, indexPath, restaurant in
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-                cell.textLabel?.text = restaurant.name
-                cell.imageView?.image = UIImage(named: restaurant.name)
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RestaurantTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.nameLabel.text = restaurant.name
+                cell.thumbnailImageView.image = UIImage(named: restaurant.name)
                 return cell
                 
             }
