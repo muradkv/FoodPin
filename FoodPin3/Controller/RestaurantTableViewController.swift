@@ -30,7 +30,7 @@ class RestaurantTableViewController: UITableViewController {
 
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
         
-        let cellIdentifier = "dataCell"
+        let cellIdentifier = "favoriteCell"
         
         let dataSource = UITableViewDiffableDataSource<Section, Restaurant> (
             tableView: tableView,
