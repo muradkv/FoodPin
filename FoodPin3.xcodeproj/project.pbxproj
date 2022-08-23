@@ -15,6 +15,7 @@
 		FA374F6528A9722A00232219 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */; };
 		FA374F6728A9B97600232219 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6628A9B97600232219 /* Restaurant.swift */; };
 		FA374F6928B4F1D900232219 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6828B4F1D900232219 /* RestaurantTableViewCell.swift */; };
+		FA374F6D28B527EE00232219 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6C28B527EE00232219 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		FA374F6628A9B97600232219 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		FA374F6828B4F1D900232219 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		FA374F6C28B527EE00232219 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FA374F6228A971E300232219 /* View */,
 				FA374F6328A971F300232219 /* Controller */,
 				FA374F6028A971BC00232219 /* Storyboard */,
+				FA374F6C28B527EE00232219 /* Constants.swift */,
 				FA374F5528A970FA00232219 /* Assets.xcassets */,
 				FA374F5A28A970FA00232219 /* Info.plist */,
 			);
@@ -181,6 +184,7 @@
 				FA374F4D28A970F900232219 /* AppDelegate.swift in Sources */,
 				FA374F6528A9722A00232219 /* RestaurantTableViewController.swift in Sources */,
 				FA374F4F28A970F900232219 /* SceneDelegate.swift in Sources */,
+				FA374F6D28B527EE00232219 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
