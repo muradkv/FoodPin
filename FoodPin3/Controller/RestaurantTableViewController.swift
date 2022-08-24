@@ -59,6 +59,8 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let cell = tableView.cellForRow(at: indexPath)
+        
         //Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
         //Add actions to the menu
@@ -76,17 +78,27 @@ class RestaurantTableViewController: UITableViewController {
         //Mark as favorite action
         let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default) { (action:UIAlertAction!) -> Void in
             
-            let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
-            
             self.restaurantsInFavorites[indexPath.row] = true
+        }
+        
+        //Remove frome favorites action
+        let removeAction = UIAlertAction(title: "Remove from favorites", style: .default) { (action:UIAlertAction!) -> Void in
+            
+            cell?.accessoryType = .none
+            self.restaurantsInFavorites[indexPath.row] = false
         }
         
         optionMenu.addAction(cancelAction)
         optionMenu.addAction(reserveAction)
-        optionMenu.addAction(favoriteAction)
         
-        //Correct show alert controller with popover style on iPad 
+        if self.restaurantsInFavorites[indexPath.row] {
+            optionMenu.addAction(removeAction)
+        } else {
+            optionMenu.addAction(favoriteAction)
+        }
+        
+        //Correct show alert controller with popover style on iPad
         if let popoverController = optionMenu.popoverPresentationController {
             if let cell = tableView.cellForRow(at: indexPath) {
                 popoverController.sourceView = cell
