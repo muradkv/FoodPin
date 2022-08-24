@@ -48,7 +48,14 @@ class RestaurantTableViewController: UITableViewController {
                 cell.thumbnailImageView.image = UIImage(named: restaurant.name)
                 cell.locationLabel.text = restaurant.location
                 cell.typeLabel.text = restaurant.type
-                cell.accessoryType = self.restaurantsInFavorites[indexPath.row] ? .checkmark : .none
+                cell.heartImageView.image = UIImage(systemName: "heart.fill")
+                
+                if self.restaurantsInFavorites[indexPath.row] {
+                    cell.heartImageView.isHidden = false
+                } else {
+                    cell.heartImageView.isHidden = true
+                }
+                
                 return cell
                 
             }
@@ -59,7 +66,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
+        guard let cell = tableView.cellForRow(at: indexPath) as? RestaurantTableViewCell else { return }
         
         //Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
@@ -78,14 +85,14 @@ class RestaurantTableViewController: UITableViewController {
         //Mark as favorite action
         let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default) { (action:UIAlertAction!) -> Void in
             
-            cell?.accessoryType = .checkmark
+            cell.heartImageView.isHidden = false
             self.restaurantsInFavorites[indexPath.row] = true
         }
         
         //Remove frome favorites action
         let removeAction = UIAlertAction(title: "Remove from favorites", style: .default) { (action:UIAlertAction!) -> Void in
             
-            cell?.accessoryType = .none
+            cell.heartImageView.isHidden = true
             self.restaurantsInFavorites[indexPath.row] = false
         }
         
