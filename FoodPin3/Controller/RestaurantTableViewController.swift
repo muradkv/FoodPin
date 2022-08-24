@@ -26,6 +26,9 @@ class RestaurantTableViewController: UITableViewController {
         snapshot.appendSections([.all])
         snapshot.appendItems(restaurants, toSection: .all)
         dataSource.apply(snapshot, animatingDifferences: true)
+        
+        //Does not allow stretching the image to the edges on iPad
+        tableView.cellLayoutMarginsFollowReadableWidth = true
 
     }
 
@@ -82,6 +85,14 @@ class RestaurantTableViewController: UITableViewController {
         optionMenu.addAction(cancelAction)
         optionMenu.addAction(reserveAction)
         optionMenu.addAction(favoriteAction)
+        
+        //Correct show alert controller with popover style on iPad 
+        if let popoverController = optionMenu.popoverPresentationController {
+            if let cell = tableView.cellForRow(at: indexPath) {
+                popoverController.sourceView = cell
+                popoverController.sourceRect = cell.bounds
+            }
+        }
         
         //Display menu
         present(optionMenu, animated: true, completion: nil)
