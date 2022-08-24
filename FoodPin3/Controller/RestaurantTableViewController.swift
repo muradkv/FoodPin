@@ -15,6 +15,7 @@ class RestaurantTableViewController: UITableViewController {
     
     let restaurants = RestaurantList.allValues
     lazy var dataSource = configureDataSource()
+    var restaurantsInFavorites = Array(repeating: false, count: RestaurantList.allValues.count)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class RestaurantTableViewController: UITableViewController {
                 cell.thumbnailImageView.image = UIImage(named: restaurant.name)
                 cell.locationLabel.text = restaurant.location
                 cell.typeLabel.text = restaurant.type
+                cell.accessoryType = self.restaurantsInFavorites[indexPath.row] ? .checkmark : .none
                 return cell
                 
             }
@@ -73,6 +75,8 @@ class RestaurantTableViewController: UITableViewController {
             
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            
+            self.restaurantsInFavorites[indexPath.row] = true
         }
         
         optionMenu.addAction(cancelAction)
