@@ -11,30 +11,31 @@ struct Restaurant: Hashable {
     let name: String
     let location: String
     let type: String
+    var inFavorites: Bool
 }
 
 struct RestaurantList {
     static let allValues = [
-        Restaurant(name: "Cafe Deadend", location: "Hong Kong", type: "Coffee & Tea Shop"),
-        Restaurant(name: "Homei", location: "Hong Kong", type: "Cafe"),
-        Restaurant(name: "Teakha", location: "Hong Kong", type: "Tea House"),
-        Restaurant(name: "Cafe Loisl", location: "Hong Kong", type: "Austrian / Causual Drink"),
-        Restaurant(name: "Petite Oyster", location: "Hong Kong", type: "French"),
-        Restaurant(name: "For Kee Restaurant", location: "Hong Kong", type: "Bakery"),
-        Restaurant(name: "Po's Atelier", location: "Hong Kong", type: "Bakery"),
-        Restaurant(name: "Bourke Street Bakery", location: "Sydney", type: "Chocolate"),
-        Restaurant(name: "Haigh's Chocolate", location: "Sydney", type: "Cafe"),
-        Restaurant(name: "Palomino Espresso", location: "Sydney", type: "American / Seafood"),
-        Restaurant(name: "Upstate", location: "New York", type: "American"),
-        Restaurant(name: "Traif", location: "New York", type: "American"),
-        Restaurant(name: "Graham Avenue Meats And Deli", location: "New York", type: "Breakfast & Brunch"),
-        Restaurant(name: "Waffle & Wolf", location: "New York", type: "Coffee & Tea"),
-        Restaurant(name: "Five Leaves", location: "New York", type: "Coffee & Tea"),
-        Restaurant(name: "Cafe Lore", location: "New York", type: "Latin American"),
-        Restaurant(name: "Confessional", location: "New York", type: "Spanish"),
-        Restaurant(name: "Barrafina", location: "London", type: "Spanish"),
-        Restaurant(name: "Donostia", location: "London", type: "Spanish"),
-        Restaurant(name: "Royal Oak", location: "London", type: "British"),
-        Restaurant(name: "CASK Pub and Kitchen", location: "London", type: "Thai")
+        Restaurant(name: "Cafe Deadend", location: "Hong Kong", type: "Coffee & Tea Shop", inFavorites: false),
+        Restaurant(name: "Homei", location: "Hong Kong", type: "Cafe", inFavorites: false),
+        Restaurant(name: "Teakha", location: "Hong Kong", type: "Tea House", inFavorites: false),
+        Restaurant(name: "Cafe Loisl", location: "Hong Kong", type: "Austrian / Causual Drink", inFavorites: false),
+        Restaurant(name: "Petite Oyster", location: "Hong Kong", type: "French", inFavorites: false),
+        Restaurant(name: "For Kee Restaurant", location: "Hong Kong", type: "Bakery", inFavorites: false),
+        Restaurant(name: "Po's Atelier", location: "Hong Kong", type: "Bakery", inFavorites: false),
+        Restaurant(name: "Bourke Street Bakery", location: "Sydney", type: "Chocolate", inFavorites: false),
+        Restaurant(name: "Haigh's Chocolate", location: "Sydney", type: "Cafe", inFavorites: false),
+        Restaurant(name: "Palomino Espresso", location: "Sydney", type: "American / Seafood", inFavorites: false),
+        Restaurant(name: "Upstate", location: "New York", type: "American", inFavorites: false),
+        Restaurant(name: "Traif", location: "New York", type: "American", inFavorites: false),
+        Restaurant(name: "Graham Avenue Meats And Deli", location: "New York", type: "Breakfast & Brunch", inFavorites: false),
+        Restaurant(name: "Waffle & Wolf", location: "New York", type: "Coffee & Tea", inFavorites: false),
+        Restaurant(name: "Five Leaves", location: "New York", type: "Coffee & Tea", inFavorites: false),
+        Restaurant(name: "Cafe Lore", location: "New York", type: "Latin American", inFavorites: false),
+        Restaurant(name: "Confessional", location: "New York", type: "Spanish", inFavorites: false),
+        Restaurant(name: "Barrafina", location: "London", type: "Spanish", inFavorites: false),
+        Restaurant(name: "Donostia", location: "London", type: "Spanish", inFavorites: false),
+        Restaurant(name: "Royal Oak", location: "London", type: "British", inFavorites: false),
+        Restaurant(name: "CASK Pub and Kitchen", location: "London", type: "Thai", inFavorites: false)
     ]
 }

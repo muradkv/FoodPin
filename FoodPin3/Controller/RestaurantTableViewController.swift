@@ -13,9 +13,8 @@ class RestaurantTableViewController: UITableViewController {
         case all
     }
     
-    let restaurants = RestaurantList.allValues
+    var restaurants = RestaurantList.allValues
     lazy var dataSource = configureDataSource()
-    var restaurantsInFavorites = Array(repeating: false, count: RestaurantList.allValues.count)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +49,7 @@ class RestaurantTableViewController: UITableViewController {
                 cell.typeLabel.text = restaurant.type
                 cell.heartImageView.image = UIImage(systemName: "heart.fill")
                 
-                if self.restaurantsInFavorites[indexPath.row] {
+                if self.restaurants[indexPath.row].inFavorites {
                     cell.heartImageView.isHidden = false
                 } else {
                     cell.heartImageView.isHidden = true
@@ -85,21 +84,21 @@ class RestaurantTableViewController: UITableViewController {
         //Mark as favorite action
         let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default) { (action:UIAlertAction!) -> Void in
             
-            cell.heartImageView.isHidden = false
-            self.restaurantsInFavorites[indexPath.row] = true
+            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
+            self.restaurants[indexPath.row].inFavorites = true
         }
         
         //Remove frome favorites action
         let removeAction = UIAlertAction(title: "Remove from favorites", style: .default) { (action:UIAlertAction!) -> Void in
             
-            cell.heartImageView.isHidden = true
-            self.restaurantsInFavorites[indexPath.row] = false
+            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
+            self.restaurants[indexPath.row].inFavorites = false
         }
         
         optionMenu.addAction(cancelAction)
         optionMenu.addAction(reserveAction)
         
-        if self.restaurantsInFavorites[indexPath.row] {
+        if self.restaurants[indexPath.row].inFavorites {
             optionMenu.addAction(removeAction)
         } else {
             optionMenu.addAction(favoriteAction)
