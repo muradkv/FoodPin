@@ -9,10 +9,6 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
-    enum Section {
-        case all
-    }
-    
     var restaurants = RestaurantList.allValues
     lazy var dataSource = configureDataSource()
 
@@ -31,11 +27,11 @@ class RestaurantTableViewController: UITableViewController {
 
     }
 
-    func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
+    func configureDataSource() -> RestaurantDiffableDataSource {
         
         let cellIdentifier = CellIdentifier.verticalUI.rawValue
         
-        let dataSource = UITableViewDiffableDataSource<Section, Restaurant> (
+        let dataSource = RestaurantDiffableDataSource (
             tableView: tableView,
             cellProvider: { tableView, indexPath, restaurant in
                 
