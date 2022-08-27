@@ -113,5 +113,46 @@ class RestaurantTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        //Get the selected restaurant
+        guard let restaurant = dataSource.itemIdentifier(for: indexPath) else {
+            return UISwipeActionsConfiguration()
+        }
+        
+        //Delete action
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            
+            var snapshot = self.dataSource.snapshot()
+            snapshot.deleteItems([restaurant])
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+            
+            //Call the completion handler to dismiss the action button
+            completionHandler(true)
+        }
+        
+        //Share action
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, completionHandler) in
+            
+            let defaultText = "Just checking in at " + restaurant.name
+            
+            let activityController: UIActivityViewController
+            
+            if let imageToShare = UIImage(named: restaurant.name) {
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            } else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+            
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+        }
+        
+        //Configure both actions as swipe action
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        
+        return swipeConfiguration
+    }
 
 }
