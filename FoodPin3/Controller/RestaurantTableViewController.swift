@@ -145,9 +145,22 @@ class RestaurantTableViewController: UITableViewController {
                 activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             }
             
+            //Present share action on iPad in a popover 
+            if let popoverController = activityController.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    popoverController.sourceRect = cell.bounds
+                    popoverController.sourceView = cell
+                }
+            }
+            
             self.present(activityController, animated: true, completion: nil)
             completionHandler(true)
         }
+        
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+        shareAction.backgroundColor = UIColor.systemOrange
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
         
         //Configure both actions as swipe action
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
