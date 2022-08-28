@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,6 +94,7 @@
                                     <outlet property="nameLabel" destination="4c6-Co-oFS" id="fvH-dp-d2c"/>
                                     <outlet property="thumbnailImageView" destination="YAU-W1-yrR" id="Bxo-j3-jhm"/>
                                     <outlet property="typeLabel" destination="99W-ry-aOJ" id="YIJ-y6-uaH"/>
+                                    <segue destination="6Zb-tR-rsZ" kind="show" identifier="showRestaurantDetail" id="AGd-8W-lhh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="qno-8w-xYC" customClass="RestaurantTableViewCell" customModule="FoodPin3" customModuleProvider="target">
@@ -165,6 +167,7 @@
                                     <outlet property="nameLabel" destination="SbA-Z0-ADi" id="qkj-UT-0Gx"/>
                                     <outlet property="thumbnailImageView" destination="1Ys-DW-5mW" id="Ria-ab-xwz"/>
                                     <outlet property="typeLabel" destination="PlR-rT-0JK" id="sHk-V0-8na"/>
+                                    <segue destination="6Zb-tR-rsZ" kind="show" identifier="showRestaurantDetail" id="53a-zs-kL1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -174,6 +177,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2z-g1-vzF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366.66666666666669" y="0.0"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="YO0-By-KCl">
+            <objects>
+                <viewController id="6Zb-tR-rsZ" customClass="RestaurantDetailViewController" customModule="FoodPin3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EOV-An-YQX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-DQ-kMI">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EeI-sz-aoj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EeI-sz-aoj" firstAttribute="bottom" secondItem="PYh-DQ-kMI" secondAttribute="bottom" id="JL1-lQ-hMT"/>
+                            <constraint firstItem="EeI-sz-aoj" firstAttribute="trailing" secondItem="PYh-DQ-kMI" secondAttribute="trailing" id="Qqn-m2-cRK"/>
+                            <constraint firstItem="PYh-DQ-kMI" firstAttribute="top" secondItem="EeI-sz-aoj" secondAttribute="top" id="Suh-oK-Hkz"/>
+                            <constraint firstItem="PYh-DQ-kMI" firstAttribute="leading" secondItem="EeI-sz-aoj" secondAttribute="leading" id="fg5-nd-5ME"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NvH-zv-1E4"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="PYh-DQ-kMI" id="k0R-BC-nJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAu-fU-Ktk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EP5-gF-VNa">
@@ -194,6 +227,9 @@
             <point key="canvasLocation" x="-543.47826086956525" y="0.0"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="53a-zs-kL1"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

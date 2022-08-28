@@ -59,60 +59,60 @@ class RestaurantTableViewController: UITableViewController {
         return dataSource
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? RestaurantTableViewCell else { return }
-        
-        //Create an option menu as an action sheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        //Add actions to the menu
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        //Add "Reserve a table" action
-        let reserveActionHandler = { (action:UIAlertAction!) -> Void in
-            
-            let alertMessage = UIAlertController(title: "Not available yet", message: "Sorry, this feature is not available yet. Please retry later.", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alertMessage, animated: true)
-        }
-        let reserveAction = UIAlertAction(title: "Reserve a table", style: .default, handler: reserveActionHandler)
-        
-        //Mark as favorite action
-        let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default) { (action:UIAlertAction!) -> Void in
-            
-            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
-            self.restaurants[indexPath.row].inFavorites = true
-        }
-        
-        //Remove frome favorites action
-        let removeAction = UIAlertAction(title: "Remove from favorites", style: .default) { (action:UIAlertAction!) -> Void in
-            
-            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
-            self.restaurants[indexPath.row].inFavorites = false
-        }
-        
-        optionMenu.addAction(cancelAction)
-        optionMenu.addAction(reserveAction)
-        
-        if self.restaurants[indexPath.row].inFavorites {
-            optionMenu.addAction(removeAction)
-        } else {
-            optionMenu.addAction(favoriteAction)
-        }
-        
-        //Correct show alert controller with popover style on iPad
-        if let popoverController = optionMenu.popoverPresentationController {
-            if let cell = tableView.cellForRow(at: indexPath) {
-                popoverController.sourceView = cell
-                popoverController.sourceRect = cell.bounds
-            }
-        }
-        
-        //Display menu
-        present(optionMenu, animated: true, completion: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        guard let cell = tableView.cellForRow(at: indexPath) as? RestaurantTableViewCell else { return }
+//
+//        //Create an option menu as an action sheet
+//        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+//        //Add actions to the menu
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+//
+//        //Add "Reserve a table" action
+//        let reserveActionHandler = { (action:UIAlertAction!) -> Void in
+//
+//            let alertMessage = UIAlertController(title: "Not available yet", message: "Sorry, this feature is not available yet. Please retry later.", preferredStyle: .alert)
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .default))
+//            self.present(alertMessage, animated: true)
+//        }
+//        let reserveAction = UIAlertAction(title: "Reserve a table", style: .default, handler: reserveActionHandler)
+//
+//        //Mark as favorite action
+//        let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default) { (action:UIAlertAction!) -> Void in
+//
+//            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
+//            self.restaurants[indexPath.row].inFavorites = true
+//        }
+//
+//        //Remove frome favorites action
+//        let removeAction = UIAlertAction(title: "Remove from favorites", style: .default) { (action:UIAlertAction!) -> Void in
+//
+//            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
+//            self.restaurants[indexPath.row].inFavorites = false
+//        }
+//
+//        optionMenu.addAction(cancelAction)
+//        optionMenu.addAction(reserveAction)
+//
+//        if self.restaurants[indexPath.row].inFavorites {
+//            optionMenu.addAction(removeAction)
+//        } else {
+//            optionMenu.addAction(favoriteAction)
+//        }
+//
+//        //Correct show alert controller with popover style on iPad
+//        if let popoverController = optionMenu.popoverPresentationController {
+//            if let cell = tableView.cellForRow(at: indexPath) {
+//                popoverController.sourceView = cell
+//                popoverController.sourceRect = cell.bounds
+//            }
+//        }
+//
+//        //Display menu
+//        present(optionMenu, animated: true, completion: nil)
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -197,6 +197,16 @@ class RestaurantTableViewController: UITableViewController {
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [favoriteAction])
         
         return swipeConfiguration
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! RestaurantDetailViewController
+                destination.restaurantImageName = self.restaurants[indexPath.row].name
+            }
+        }
     }
 
 }

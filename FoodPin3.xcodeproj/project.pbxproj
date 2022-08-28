@@ -17,6 +17,7 @@
 		FA374F6928B4F1D900232219 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6828B4F1D900232219 /* RestaurantTableViewCell.swift */; };
 		FA374F6D28B527EE00232219 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6C28B527EE00232219 /* Constants.swift */; };
 		FA374F6F28BA251600232219 /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F6E28BA251600232219 /* RestaurantDiffableDataSource.swift */; };
+		FA374F7128BBF94800232219 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA374F7028BBF94800232219 /* RestaurantDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FA374F6828B4F1D900232219 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		FA374F6C28B527EE00232219 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA374F6E28BA251600232219 /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDiffableDataSource.swift; sourceTree = "<group>"; };
+		FA374F7028BBF94800232219 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				FA374F6428A9722A00232219 /* RestaurantTableViewController.swift */,
 				FA374F6E28BA251600232219 /* RestaurantDiffableDataSource.swift */,
+				FA374F7028BBF94800232219 /* RestaurantDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				FA374F6928B4F1D900232219 /* RestaurantTableViewCell.swift in Sources */,
 				FA374F6728A9B97600232219 /* Restaurant.swift in Sources */,
+				FA374F7128BBF94800232219 /* RestaurantDetailViewController.swift in Sources */,
 				FA374F4D28A970F900232219 /* AppDelegate.swift in Sources */,
 				FA374F6528A9722A00232219 /* RestaurantTableViewController.swift in Sources */,
 				FA374F4F28A970F900232219 /* SceneDelegate.swift in Sources */,
