@@ -145,7 +145,7 @@ class RestaurantTableViewController: UITableViewController {
                 activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             }
             
-            //Present share action on iPad in a popover 
+            //Present share action on iPad in a popover
             if let popoverController = activityController.popoverPresentationController {
                 if let cell = tableView.cellForRow(at: indexPath) {
                     popoverController.sourceRect = cell.bounds
@@ -164,6 +164,37 @@ class RestaurantTableViewController: UITableViewController {
         
         //Configure both actions as swipe action
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        
+        return swipeConfiguration
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? RestaurantTableViewCell else { return UISwipeActionsConfiguration() }
+        
+        let favoriteAction = UIContextualAction(style: .normal, title: "") { (action, sourceView, completionHandler) in
+            
+            cell.heartImageView.isHidden = self.restaurants[indexPath.row].inFavorites
+            
+            if self.restaurants[indexPath.row].inFavorites {
+                self.restaurants[indexPath.row].inFavorites = false
+            } else {
+                self.restaurants[indexPath.row].inFavorites = true
+            }
+            
+            completionHandler(true)
+        }
+        
+        favoriteAction.backgroundColor = UIColor.systemYellow
+        
+        if restaurants[indexPath.row].inFavorites {
+            favoriteAction.image = UIImage(systemName: "heart.slash.fill")
+        } else {
+            favoriteAction.image = UIImage(systemName: "heart.fill")
+        }
+        
+        //Configure action as swipe action
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [favoriteAction])
         
         return swipeConfiguration
     }
