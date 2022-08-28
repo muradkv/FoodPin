@@ -12,6 +12,20 @@ struct Restaurant: Hashable {
     let location: String
     let type: String
     var inFavorites: Bool
+    
+    init() {
+        self.name = ""
+        self.location = ""
+        self.type = ""
+        self.inFavorites = false 
+    }
+    
+    init(name: String, location: String, type: String, inFavorites: Bool) {
+        self.name = name
+        self.location = location
+        self.type = type
+        self.inFavorites = false
+    }
 }
 
 struct RestaurantList {
